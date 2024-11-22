@@ -6,7 +6,7 @@ struct ppm {
     int width;
     int height;
     int Maxval;
-    struct msg hidden_msg;
+    
 };
 
 void print2screen(char *message) {
@@ -53,6 +53,52 @@ int readHeader(struct ppm *pi, FILE *fp) {
         }
         ++pm;
     }
+
+    return 0;
+}
+
+ void readMsg(FILE *fp)
+ {
+    
+
+
+
+
+ }
+
+
+int main()
+{
+
+    FILE *fp = fopen("TU_modified.ppm", "rb");
+    struct ppm img;
+
+    if (readHeader(&img, fp) != 0) 
+    {
+    printf("Error reading header\n");
+    fclose(fp);
+    return -1;
+    }
+
+    printf("Magic Number: %s\n", img.magic_number);
+    printf("Width: %d\n, Height: %d, Maxval: %d\n", img.width, img.height, img.Maxval);
+
+    // Proceed to read pixel data...
+    fclose(fp);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     return 0;
 }
